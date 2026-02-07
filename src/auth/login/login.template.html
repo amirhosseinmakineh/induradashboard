@@ -1,0 +1,53 @@
+<form name="loginForm" ng-submit="login()" novalidate>
+  <div class="container">
+    <div class="grid">
+      <div class="col-6">
+        <div class="card">
+          <h2 class="title">ورود</h2>
+          <p class="subtitle">بدون API — فقط فرم و روتینگ</p>
+
+          <div class="field">
+            <div class="label">نام کاربری</div>
+            <input class="input"
+                   name="username"
+                   ng-model="loginModel.userName"
+                   required
+                   ng-minlength="3"
+                   placeholder="مثلاً amirhossein" />
+            <div class="subtitle" ng-if="loginForm.username.$touched && loginForm.username.$invalid">
+              نام کاربری معتبر نیست
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="label">رمز عبور</div>
+            <input class="input"
+                   type="password"
+                   name="password"
+                   ng-model="loginModel.password"
+                   required
+                   ng-minlength="4"
+                   placeholder="••••••••" />
+            <div class="subtitle" ng-if="loginForm.password.$touched && loginForm.password.$invalid">
+              رمز عبور معتبر نیست
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="btn primary" type="submit">
+              ورود
+            </button>
+
+            <button class="btn" type="button" ng-click="goHome()">
+              بازگشت
+            </button>
+
+            <button class="btn" type="button" ng-click="showRegister()">
+              ثبت‌نام
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

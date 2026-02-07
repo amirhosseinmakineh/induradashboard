@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fa" dir="rtl" ng-app="app">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AngularJS SPA Starter</title>
+
+  <!-- AngularJS + UI-Router -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js"></script>
+
+<!-- toaster -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/3.0.0/toaster.min.css"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/3.0.0/toaster.min.js"></script>
+
+
+  <!-- App bundle (order matters) -->
+  <script src="src/app.module.js"></script>
+  <script src="src/app.routes.js"></script>
+
+  <!-- Shared -->
+  <script src="src/shared/shared.module.js"></script>
+  <script src="src/shared/services/auth.service.js"></script>
+  <script src="src/shared/services/user.service.js"></script>
+
+  <!-- Home -->
+  <script src="src/home/home.module.js"></script>
+  <script src="src/home/home.routes.js"></script>
+  <script src="src/home/home.controller.js"></script>
+
+  <!-- Auth -->
+  <script src="src/auth/auth.module.js"></script>
+  <script src="src/auth/auth.routes.js"></script>
+  <script src="src/auth/login/login.controller.js"></script>
+  <script src="src/auth/register/register.controller.js"></script>
+
+  <!-- Dashboard -->
+  <script src="src/dashboard/dashboard.module.js"></script>
+  <script src="src/dashboard/dashboard.routes.js"></script>
+  <script src="src/dashboard/layout/dashboardLayout.controller.js"></script>
+  <script src="src/dashboard/users/users.controller.js"></script>
+
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <main class="main">
+      <div ui-view></div>
+    </main>
+
+    <footer class="footer">
+    </footer>
+  </div>
+<toaster-container></toaster-container>
+
+</body>
+</html>

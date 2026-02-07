@@ -1,0 +1,70 @@
+<form name="registerForm" ng-submit="register(registerForm)" novalidate>
+  <div class="container">
+    <div class="grid">
+      <div class="col-6">
+        <div class="card">
+          <h2 class="title">ثبت‌نام</h2>
+          <p class="subtitle">بدون API — فقط فرم و روتینگ</p>
+
+          <!-- Username -->
+          <div class="field">
+            <div class="label">نام کاربری</div>
+            <input class="input"
+                   name="username"
+                   ng-model="registerModel.userName"
+                   required
+                   ng-minlength="3"
+                   placeholder="مثلاً amirhossein" />
+            <div class="subtitle" ng-if="registerForm.$submitted && registerForm.username.$invalid">
+              نام کاربری حداقل ۳ کاراکتر باشد
+            </div>
+          </div>
+
+          <!-- Mobile -->
+          <div class="field">
+            <div class="label">موبایل</div>
+            <input class="input"
+                   name="mobile"
+                   ng-model="registerModel.mobileNumber"
+                   required
+                   ng-pattern="/^09\d{9}$/"
+                   placeholder="09123456789"
+                   dir="ltr" />
+            <div class="subtitle" ng-if="registerForm.$submitted && registerForm.mobile.$invalid">
+              موبایل معتبر نیست (مثل 09123456789)
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="field">
+            <div class="label">رمز عبور</div>
+            <input class="input"
+                   type="password"
+                   name="password"
+                   ng-model="registerModel.password"
+                   required
+                   ng-minlength="6"
+                   placeholder="••••••••" />
+            <div class="subtitle" ng-if="registerForm.$submitted && registerForm.password.$invalid">
+              رمز عبور حداقل ۶ کاراکتر باشد
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="btn primary" type="submit" ng-disabled="isLoading">
+              {{isLoading ? 'در حال ارسال...' : 'ثبت‌نام'}}
+            </button>
+
+            <button class="btn" type="button" ng-click="back()">بازگشت</button>
+            <button class="btn" type="button" ng-click="showLogin()">ورود</button>
+          </div>
+
+          <!-- Debug (اختیاری: بعداً پاک کن) -->
+          <div class="subtitle" dir="ltr" style="margin-top:10px">
+            invalid: {{registerForm.$invalid}} | submitted: {{registerForm.$submitted}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

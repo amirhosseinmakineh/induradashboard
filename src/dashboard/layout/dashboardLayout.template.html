@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="dash">
+    <aside class="sidebar">
+      <div class="section-title">داشبورد</div>
+
+      <nav class="nav">
+        <a href="" ng-repeat="item in vm.nav"
+           ng-click="goHome()">
+          <span>{{item.title}}</span>
+          <span class="badge">{{item.badge}}</span>
+        </a>
+      </nav>
+    </aside>
+
+    <section class="content">
+      <div ui-view></div>
+    </section>
+  </div>
+</div>
